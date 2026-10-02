@@ -1,0 +1,83 @@
+.deal-of-the-day-slider {
+    margin: 20px 0;
+    
+  }
+  .deal-of-the-day-container{
+    background-color: azure;
+    border: 1px solid gray;
+  }
+  
+  .deal-of-the-day-card {
+    position: relative;
+    margin-right: 20px; 
+  
+  }
+  
+  .deal-of-the-day-card:last-child {
+    margin-right: 0; 
+    
+  }
+  
+  
+  .card-image-wrapper {
+    width: 98%; /* Set the fixed width */
+    height: 200px; /* Set the fixed height */
+    overflow: hidden; /* Hide overflow to ensure image stays within the container */
+    border-bottom: none;
+    border: 1px solid rgba(128, 128, 128, 0.334);
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+  }
+  
+  
+  .card-details {
+    padding: 10px;
+    width: 98%;
+   border: 1px solid rgba(128, 128, 128, 0.334);
+   border-top: none;
+   font-weight: 800;
+   margin-bottom: 15px;
+    
+  }
+  
+  .card-details h4 {
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: black;
+  }
+  .deal-of-the-day-heading{
+    text-align: center;
+    font-weight: 700;
+    border: 1px solid #004bad66;
+    padding: 8px;
+    background-color: azure;
+  }
+  
+  .card-details p {
+    margin: 5px 0;
+  }
+  .card-details del {
+    color: gray;
+  }
+  .card-details .real-price{
+    color: red;
+  }
+  
+  .slick-next {
+    display: none !important;
+  }
+  
+  
+  .deals-of-the-day-setting .slick-next:before {
+    display: none;
+  }
+  
+
+  
+.slick-arrow {
+    display: none;
+}

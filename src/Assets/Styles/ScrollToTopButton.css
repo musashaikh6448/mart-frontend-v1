@@ -1,0 +1,63 @@
+.scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  font-size: 40px;
+  right: 20px;
+  z-index: 1000;
+  color: #004aad;
+ 
+  cursor: pointer;
+}
+
+.scroll-to-top.show {
+  display: block;
+}
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.scroll {
+  --transition-time: 0.4s;
+  --width-arrow-line: 6px;
+  --color-arrow: #ffffff;
+}
+
+.top-btn {
+  display: block;
+  width: 50px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  position: relative;
+  background-color: #004aad;
+  box-shadow: 0 0 10px #004aad;
+  overflow: hidden;
+}
+
+.top-btn::before,
+.top-btn::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  translate: -50% 0;
+}
+
+.top-btn::before {
+  width: 20px;
+  aspect-ratio: 1 / 1;
+  border-top: var(--width-arrow-line) solid var(--color-arrow);
+  border-left: var(--width-arrow-line) solid var(--color-arrow);
+  rotate: 45deg;
+}
+
+.top-btn::after {
+  width: var(--width-arrow-line);
+  height: 50%;
+  background-color: var(--color-arrow);
+}
+

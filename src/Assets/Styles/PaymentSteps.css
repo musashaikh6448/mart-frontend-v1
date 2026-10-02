@@ -1,0 +1,69 @@
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.popup-container {
+  background: white;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px #C8D0D8;
+  display: inline-block;
+  text-align: center;
+}
+
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px #C8D0D8;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.circle-container {
+  border-radius: 200px;
+  height: 100px;
+  width: 100px;
+  background: #F8FAF5;
+  margin: 0 auto;
+}
+
+.checkmark {
+  color: #004AAD;
+  font-size: 50px;
+  line-height: 84px;
+  /* margin-left: -15px; */
+}
+
+.title {
+  color: #004AAD;
+  font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.message {
+  color: #404F5E;
+  font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  margin: 0;
+}
+/* 
+@media (max-width: 600px) {
+  .payment-model{
+    inset: 14px;
+    background-color: white;
+  }
+} */

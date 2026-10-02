@@ -1,0 +1,114 @@
+{
+  "translations": {
+    "DATES": {
+      "en": "DATES",
+      "mr": "खजूर",
+      "ur": "کھجور"
+    },
+    "HOMEMADE SNACKS": {
+      "en": "HOMEMADE SNACKS",
+      "mr": "घरगुती चवींचे",
+      "ur": "گھریلو سنیکس"
+    },
+    "CLOTHES": {
+      "en": "CLOTHES",
+      "mr": "कपडे",
+      "ur": "کپڑے"
+    },
+    "PERFUMES": {
+      "en": "PERFUMES",
+      "mr": "सुगंधित",
+      "ur": "عطر"
+    },
+    "KIRANA DUKAAN": {
+      "en": "KIRANA DUKAAN",
+      "mr": "किराणा ",
+      "ur": "کرانہ"
+    },
+    "GIFT-ITEMS": {
+      "en": "GIFT-ITEMS",
+      "mr": "उपहार सामान",
+      "ur": "تحفہ اشیاء"
+    },
+    "TOY'S": {
+      "en": "TOY'S",
+      "mr": "खेळणी",
+      "ur": "کھلونے"
+    },
+    "FURNITURE": {
+      "en": "FURNITURE",
+      "mr": "फर्निचर",
+      "ur": "فرنیچر"
+    },
+    "BOOKS": {
+      "en": "BOOKS",
+      "mr": "पुस्तके",
+      "ur": "کتابیں"
+    },
+    "LAPTOPS": {
+      "en": "LAPTOP",
+      "mr": "लॅपटॉप",
+      "ur": "لیپ ٹاپ "
+    },
+    "CROCKERY": {
+      "en": "CROCKERY",
+      "mr": "क्रॉकरी",
+      "ur": "کراکری"
+    },
+    "COSMETIC": {
+      "en": "Cosmetic",
+      "mr": "सौंदर्य उत्पाद",
+      "ur": "کاسمیٹک"
+    },
+    "OTHERS": {
+      "en": "OTHERS",
+      "mr": "इतर",
+      "ur": "دیگر"
+    },
+    "MOBILES": {
+      "en": "MOBILES",
+      "mr": "मोबाइल्स",
+      "ur": "موبائلز"
+    },
+    "JEWELLERY": {
+      "en": "JEWELLERY",
+      "mr": "आभूषण",
+      "ur": "زیورات"
+    },
+    "FOOTWERE": {
+      "en": "FOOTWERE",
+      "mr": "फुटवेर",
+      "ur": "جوتے"
+    },
+    "PLANTS": {
+      "en": "PLANTS",
+      "mr": "झाडे",
+      "ur": "پودے"
+    },
+    "WATCHES": {
+      "en": "WATCHES",
+      "mr": "घड्याळ",
+      "ur": "گھڑیاں"
+    },
+    "SPORTS": {
+      "en": "SPORTS",
+      "mr": "खेळ",
+      "ur": "کھیل"
+    },
+    "HOME DECORE": {
+      "en": "HOME DECORE",
+      "mr": "घर सजावट",
+      "ur": "گھر سجاوٹ"
+    },
+    "DISPOSABLE ITEM'S": {
+      "en": "DISPOSABLE ITEM'S",
+      "mr": "विकच्या वस्तूंची",
+      "ur":"ڈسپوزیبل اشیاء"
+    },
+    "DRY FRUITS": {
+      "en": "DRY FRUITS",
+      "mr": "सूखे मेवे",
+      "ur":"خشک میوہ جات"
+    }
+  }
+}

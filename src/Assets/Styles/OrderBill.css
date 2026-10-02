@@ -1,0 +1,113 @@
+/* OrderBill.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+.order-bill-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.order-bill-invoice {
+  width: 90%;
+  max-width: 800px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif; /* Apply Google Font */
+}
+
+.order-bill-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.company-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.company-details h1 {
+  margin: 0;
+  font-size: 36px;
+  color: #333;
+}
+
+.order-details {
+  margin-bottom: 30px;
+}
+
+.customer-details {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd; /* Add border-bottom */
+  padding-bottom: 20px; /* Add some padding */
+}
+
+.customer-details h2 {
+  margin-top: 0;
+  font-size: 24px;
+  color: #555;
+}
+
+.customer-details p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #777;
+}
+
+.order-items table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.order-items th, .order-items td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  color: #555;
+  font-family: 'Roboto', sans-serif; /* Apply Google Font */
+}
+
+.order-items th {
+  text-align: left;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #f0f0f0; /* Add background color for header */
+}
+
+.order-items .total-amount {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.order-bill-footer p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #777;
+}
+
+@media screen and (max-width: 600px) {
+  .order-bill-invoice {
+    padding: 20px;
+  }
+
+  .company-details h1 {
+    font-size: 28px;
+  }
+
+  .order-items th, .order-items td {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
