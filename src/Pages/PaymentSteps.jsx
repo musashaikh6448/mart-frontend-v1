@@ -114,7 +114,7 @@ const PaymentStep = () => {
       );
       const data = response?.data;
       setResponseData(data);
-      if (data.success || response.status == 201) {
+      if (data.success || response.status === 201) {
 
         const orderId = data?.order?.orderId;
 

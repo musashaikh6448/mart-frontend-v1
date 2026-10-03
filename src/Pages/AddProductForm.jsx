@@ -599,7 +599,7 @@ const AddProductForm = () => {
           />
         </label>
 
-        {userRole == "superadmin" && (
+        {userRole === "superadmin" && (
           <>
             <div className="cl-toggle-switch">
               <label className="formLabel">

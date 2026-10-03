@@ -37,6 +37,8 @@ const AllOrders = () => {
   const [searchInput, setSearchInput] = useState("");
   const [showEditIcon, setShowEditIcon] = useState(true);
 
+  const token = localStorage.getItem("token");
+
   const navigate = useNavigate();
 
   // Function to handle expired or invalid token error
@@ -172,8 +174,6 @@ const AllOrders = () => {
     }
   };
 
-  const token = localStorage.getItem("token");
-
   useEffect(() => {
     const fetchOrders = async () => {
       try {
@@ -250,7 +250,7 @@ const AllOrders = () => {
             new Date(order.createdAt).getTime() >= today.getTime() &&
             new Date(order.createdAt).getTime() < tomorrow.getTime()
         );
-      case "tomorrow":
+      case "tomorrow": {
         const afterTomorrow = new Date(tomorrow);
         afterTomorrow.setDate(afterTomorrow.getDate() + 1);
         afterTomorrow.setHours(0, 0, 0, 0); // Set hours to 00:00:00
@@ -259,20 +259,23 @@ const AllOrders = () => {
             new Date(order.createdAt).getTime() >= tomorrow.getTime() &&
             new Date(order.createdAt).getTime() < afterTomorrow.getTime()
         );
-      case "lastWeek":
+      }
+      case "lastWeek": {
         const lastWeek = new Date(today);
         lastWeek.setDate(lastWeek.getDate() - 7);
         lastWeek.setHours(0, 0, 0, 0); // Set hours to 00:00:00
         return orders.filter(
           (order) => new Date(order.createdAt).getTime() >= lastWeek.getTime()
         );
-      case "lastMonth":
+      }
+      case "lastMonth": {
         const lastMonth = new Date(today);
         lastMonth.setMonth(lastMonth.getMonth() - 1);
         lastMonth.setHours(0, 0, 0, 0); // Set hours to 00:00:00
         return orders.filter(
           (order) => new Date(order.createdAt).getTime() >= lastMonth.getTime()
         );
+      }
       default:
         return orders.filter((order) =>
           order.orderStatus.toLowerCase().includes(searchInput.toLowerCase())
@@ -425,9 +428,6 @@ const AllOrders = () => {
       });
 
       if (confirmed.isConfirmed) {
-        // Retrieve token from localStorage
-        const token = localStorage.getItem("token");
-
         const apiUrl = `${Base_Url}/order/deleteOrderById/${selectedOrder._id}`;
 
         // Make the DELETE request with the token included in the headers
@@ -469,9 +469,6 @@ const AllOrders = () => {
   const handleSaveChanges = async () => {
     try {
       setIsLoading(true);
-
-      // Retrieve token from localStorage
-      const token = localStorage.getItem("token");
 
       const apiUrl = `${Base_Url}/order/updateOrderById/${selectedOrder._id}`;
 

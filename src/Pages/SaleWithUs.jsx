@@ -309,7 +309,7 @@ const SaleWithUs = () => {
                       type="radio"
                       name="hasShop"
                       value="yes"
-                      checked={formData.hasShop == "yes"}
+                      checked={formData.hasShop === "yes"}
                       onChange={handleInputChange}
                     />
                     <label> No</label>
@@ -318,7 +318,7 @@ const SaleWithUs = () => {
                       type="radio"
                       name="hasShop"
                       value="no"
-                      checked={formData.hasShop == "no"}
+                      checked={formData.hasShop === "no"}
                       onChange={handleInputChange}
                     />
                   </div>
@@ -357,7 +357,7 @@ const SaleWithUs = () => {
                       type="radio"
                       name="hasGSTNumber"
                       value="yes"
-                      checked={formData.hasGSTNumber == "yes"}
+                      checked={formData.hasGSTNumber === "yes"}
                       onChange={handleInputChange}
                     />
                     <label> No</label>
@@ -366,7 +366,7 @@ const SaleWithUs = () => {
                       type="radio"
                       name="hasGSTNumber"
                       value="no"
-                      checked={formData.hasGSTNumber == "no"}
+                      checked={formData.hasGSTNumber === "no"}
                       onChange={handleInputChange}
                     />
                   </div>

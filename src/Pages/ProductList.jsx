@@ -490,7 +490,7 @@ const ProductList = () => {
           <h4>Product Name : {selectedProduct?.productName}</h4>
           <table className="table table-striped  table-bordered">
             <tbody>
-              {userRole == "superadmin" ? (
+              {userRole === "superadmin" ? (
                 <>
                   <tr>
                     <th>Product Name </th>
@@ -931,7 +931,7 @@ const ProductList = () => {
                   )}
                 </td>
               </tr>
-              {userRole == "superadmin" && (
+              {userRole === "superadmin" && (
                 <>
                   <tr>
                     <th>Deal of the Day</th>

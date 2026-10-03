@@ -64,7 +64,7 @@ const Login = () => {
       }
 
       // Check the response for successful login
-      if (response?.status == 200 || response?.data?.success) {
+      if (response?.status === 200 || response?.data?.success) {
         // toast.success(response.data.message)
         Swal.fire({
           title: "Congratulation!",
