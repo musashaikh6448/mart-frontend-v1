@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
@@ -15,7 +15,7 @@ const EnquiryTable = () => {
   }, [location.pathname, id]);
   const navigate = useNavigate()
 
-  const handleTokenError = () => {
+  const handleTokenError = useCallback(() => {
     Swal.fire({
       icon: "warning",
       title: "Your session has expired.",
@@ -30,7 +30,7 @@ const EnquiryTable = () => {
         navigate("/login");
       }
     });
-  };
+  }, [navigate]);
 
   useEffect(() => {
     const fetchEnquiryData = async () => {
@@ -60,7 +60,7 @@ const EnquiryTable = () => {
     };
   
     fetchEnquiryData();
-  }, []);
+  }, [handleTokenError]);
   
 
   return (

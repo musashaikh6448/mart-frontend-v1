@@ -54,7 +54,7 @@ const Login = () => {
         }
       );
 
-      if (!response?.status == 200) {
+      if (response?.status !== 200) {
         Swal.fire({
           title: "Oops!",
           text: "Mobile number and password are required",

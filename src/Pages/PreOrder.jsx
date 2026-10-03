@@ -25,15 +25,6 @@ const PreOrder = () => {
     description: "",
     pincode: "",
   });
-  const [errors, setErrors] = useState({
-    fullName: "",
-    preOrderProduct: "",
-    phoneNumber: "",
-    additionalAdd: "",
-    landMark: "",
-    description: "",
-    pincode: "",
-  });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -52,14 +43,10 @@ const PreOrder = () => {
       // Check if the parsed value is a positive number
       const isValidNumber = !isNaN(intValue) && intValue >= 0;
 
-      // Update form data and errors accordingly
+      // Update form data accordingly
       setFormData((prevData) => ({
         ...prevData,
         [name]: isValidNumber ? truncatedValue : "",
-      }));
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [name]: isValidNumber ? "" : "Please enter a valid 10-digit number",
       }));
     } else if (
       name === "aadharNumber" ||
@@ -82,18 +69,12 @@ const PreOrder = () => {
       // Check if the value is within the desired range (1 to 120)
       const isValidAge = !isNaN(ageValue) && ageValue >= 1 && ageValue <= 120;
 
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [name]: isValidAge ? "" : "Age must be between 1 and 120",
-      }));
-
       // Update form data with the validated value
       setFormData((prevData) => ({
         ...prevData,
         [name]: isValidAge ? ageValue : "",
       }));
     } else {
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
       setFormData((prevData) => ({ ...prevData, [name]: value }));
     }
   };
@@ -131,10 +112,6 @@ const PreOrder = () => {
   
     requiredFields.forEach((field) => {
       if (!formData[field]) {
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          [field]: " ",
-        }));
         hasError = true;
       }
     });
@@ -199,23 +176,22 @@ const PreOrder = () => {
     }
   };
   
-  
-  
-
   return (
     <div style={{ width: "80%", margin: "20px auto" }}>
       <ToastContainer />
       <h1 style={{ textAlign: "center" }}>Pre Order</h1>
-      <marquee
-        direction="left"
-        style={{ color: "#004AAD", fontWeight: "bold" ,height:"40px"}}
+      <div
+        className="home-marquee"
+        style={{ color: "#004AAD", fontWeight: "bold", height: "40px" }}
       >
-        <span style={{ marginRight: "100px", marginBottom: "50px" }}>
-          {" "}
-          Get 15% off on pre-orders!{" "}
-        </span>
-        <span>Pre order means order us 5 to 10 days before</span>
-      </marquee>
+        <div className="scrolling-text">
+          <span style={{ marginRight: "100px", marginBottom: "50px" }}>
+            {" "}
+            Get 15% off on pre-orders!{" "}
+          </span>
+          <span>Pre order means order us 5 to 10 days before</span>
+        </div>
+      </div>
 
       <form action="">
         <>

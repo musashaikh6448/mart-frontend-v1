@@ -16,7 +16,6 @@ import {
 
 const ProductMain = () => {
   const location = useLocation();
-  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const getCategoryProducts = (category, isMobile) => {
     const maxProducts = isMobile ? 4 : 12;
@@ -33,7 +32,6 @@ const ProductMain = () => {
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
   const { handleAddToCart, ToastContainer, quantity, handleBuyNow } =
     useContext(Context);
@@ -45,8 +43,8 @@ const ProductMain = () => {
         const response = await axios.get(`${Base_Url}${getAllProductAPI}`);
         setProducts(normalizeProducts(response?.data?.products));
         setLoading(false);
-      } catch (error) {
-        setError(error);
+      } catch (err) {
+        console.error("Error fetching products:", err);
         setLoading(false);
       }
     };
@@ -91,7 +89,6 @@ const ProductMain = () => {
             <h5
               className="heading-of-category"
               onClick={() => {
-                setSelectedCategory(category);
                 navigate(`/category/${category}`);
               }}
             >
@@ -199,7 +196,6 @@ const ProductMain = () => {
               <button
                 className="viewAll-btn"
                 onClick={() => {
-                  setSelectedCategory(category);
                   navigate(`/category/${category}`);
                 }}
               >

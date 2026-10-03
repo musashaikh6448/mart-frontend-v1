@@ -5,7 +5,6 @@ import Modal from "react-modal";
 import axios from "axios";
 import { Base_Url, saveOrderProductAPI } from "../common/Apis";
 import { Context } from "../common/Context";
-import parsePhoneNumberFromString from "libphonenumber-js";
 import "../Assets/Styles/PaymentSteps.css";
 import { IoIosPhonePortrait } from "react-icons/io";
 import { FaWhatsapp } from "react-icons/fa";
@@ -22,10 +21,7 @@ const PaymentStep = () => {
     cartItems,
     cartSubTotal,
     ToastContainer,
-    toast,
-    singleItems,
     setCartItems,
-    setSingleItems,
     totalSavedAmount,
     cartGrandTotal,
     cardDeliveryCharge,
@@ -35,36 +31,11 @@ const PaymentStep = () => {
     Swal
   } = useContext(Context);
 
-  const [showPopup, setShowPopup] = useState(false);
   const [responseData, setResponseData] = useState([]);
 
   console.log("responseData", responseData?.order?.orderId);
   const navigate = useNavigate();
-  // const [formData, setFormData] = useState({
-  //   fullName: "",
-  //   phoneNumber: "",
-  //   AlternateNumber: "",
-  //   email: "",
-  //   houseNo: "",
-  //   area: "",
-  //   landMark: "",
-  //   pincode: "",
-  //   // addressType: "",
-  //   additionalAdd: "",
-  // });
   const [formData, setFormData] = useState(customerDetail);
-  const [errors, setErrors] = useState({
-    fullName: "",
-    phoneNumber: "",
-    AlternateNumber: "",
-    email: "",
-    houseNo: "",
-    area: "",
-    landMark: "",
-    pincode: "",
-    addressType: "",
-    additionalAdd: "",
-  });
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -165,10 +136,6 @@ const PaymentStep = () => {
         ...prevData,
         [name]: isValidNumber ? truncatedValue : "",
       }));
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [name]: isValidNumber ? "" : "Please enter a valid 10-digit number",
-      }));
     } else if (
       name === "aadharNumber" ||
       name === "pincode" ||
@@ -183,27 +150,17 @@ const PaymentStep = () => {
       const ageValue = parseInt(value, 10);
       const isValidAge = !isNaN(ageValue) && ageValue >= 1 && ageValue <= 120;
 
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [name]: isValidAge ? "" : "Age must be between 1 and 120",
-      }));
       setFormData((prevData) => ({
         ...prevData,
         [name]: isValidAge ? ageValue : "",
       }));
     } else {
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
       setFormData((prevData) => ({ ...prevData, [name]: value }));
     }
     setCustomerDetail((prevCustomerDetail) => ({
       ...prevCustomerDetail,
       [name]: value,
     }));
-  };
-
-  const validatePhoneNumber = (phoneNumber) => {
-    const parsedNumber = parsePhoneNumberFromString(phoneNumber, "IN");
-    return parsedNumber && parsedNumber.isValid();
   };
 
   const handleNext = (e) => {
