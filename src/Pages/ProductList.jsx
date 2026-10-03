@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import Modal from "react-modal";
 import "../Assets/Styles/AddProductForm.css";
@@ -36,9 +36,6 @@ const ProductList = () => {
   const [searchInput, setSearchInput] = useState(""); // New state for search input
   const [filterByApproved, setFilterByApproved] = useState("");
   const [filterByDealOfDay, setFilterByDealOfDay] = useState("");
-  const [fileInputVisible, setFileInputVisible] = useState(false);
-
-  const mobileNumber = localStorage.getItem("mobileNumber");
 
   const [updatedProduct, setUpdatedProduct] = useState({
     productBrand: "",
@@ -70,7 +67,7 @@ const ProductList = () => {
     }
   }, [showModal]);
 
-  const handleTokenError = () => {
+  const handleTokenError = useCallback(() => {
     Swal.fire({
       icon: "warning",
       title: "Your session has expired.",
@@ -85,14 +82,16 @@ const ProductList = () => {
         navigate("/login");
       }
     });
-  };
+  }, [navigate]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         let response = {};
         const token = localStorage.getItem("token");
-        if (userRole === "superadmin") {
+        const currentUserRole = localStorage.getItem("userRole");
+        const currentMobileNumber = localStorage.getItem("mobileNumber");
+        if (currentUserRole === "superadmin") {
           response = await axios.get(
             `${Base_Url}/product/getproduct`,
             {
@@ -103,7 +102,7 @@ const ProductList = () => {
           );
         } else {
           response = await axios.get(
-            `${Base_Url}/product/mobile/${mobileNumber}`,
+            `${Base_Url}/product/mobile/${currentMobileNumber}`,
             {
               headers: {
                 Authorization: `${token}`,
@@ -130,7 +129,7 @@ const ProductList = () => {
     };
 
     fetchData();
-  }, []);
+  }, [handleTokenError]);
 
   const handleMoreInfo = (product) => {
     setSelectedProduct(product);
@@ -185,27 +184,6 @@ const ProductList = () => {
   const handleUpdate = async () => {
     try {
       setLoading(true);
-      setFileInputVisible(true);
-      // Validate fields before submitting
-      const requiredFields = [
-        // "productType",
-        // "productCategory",
-        "tekiskyPrice",
-        "productBrand",
-        "availableStockQty",
-        "mrp",
-        "offerPrice",
-        // "packetweight",
-        // "unitOfMeasure",
-        "description",
-        // "createdBy",
-        "productName",
-        "manufactureDate",
-        "expiryDate",
-        "sellerInformation",
-        "imageURL",
-      ];
-
       // Check if any required field is empty
       // if (requiredFields.some((field) => !updatedProduct[field])) {
       //   Swal.fire({

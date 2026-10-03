@@ -12,7 +12,7 @@ const SaleWithUs = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname, id]);
-  const { ToastContainer, toast, Swal } = useContext(Context);
+  const { ToastContainer, Swal } = useContext(Context);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
@@ -20,16 +20,6 @@ const SaleWithUs = () => {
     hasShop: "no",
     shopName: "",
     hasGSTNumber: "no",
-    GSTNumber: "",
-    phoneNumber: "",
-    productDetails: "",
-  });
-  const [errors, setErrors] = useState({
-    fullName: "",
-    saleProduct: "",
-    hasShop: "",
-    shopName: "",
-    hasGSTNumber: "",
     GSTNumber: "",
     phoneNumber: "",
     productDetails: "",
@@ -57,10 +47,6 @@ const SaleWithUs = () => {
         ...prevData,
         [name]: isValidNumber ? truncatedValue : "",
       }));
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [name]: isValidNumber ? "" : "Please enter a valid 10-digit number",
-      }));
     } else if (
       name === "aadharNumber" ||
       name === "pincode" ||
@@ -82,18 +68,12 @@ const SaleWithUs = () => {
       // Check if the value is within the desired range (1 to 120)
       const isValidAge = !isNaN(ageValue) && ageValue >= 1 && ageValue <= 120;
 
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [name]: isValidAge ? "" : "Age must be between 1 and 120",
-      }));
-
       // Update form data with the validated value
       setFormData((prevData) => ({
         ...prevData,
         [name]: isValidAge ? ageValue : "",
       }));
     } else {
-      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
       setFormData((prevData) => ({ ...prevData, [name]: value }));
     }
   };
@@ -114,10 +94,6 @@ const SaleWithUs = () => {
 
     requiredFields.forEach((field) => {
       if (!formData[field]) {
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          [field]: " ",
-        }));
         hasError = true;
       }
     });
@@ -170,11 +146,6 @@ const SaleWithUs = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    if (e) {
-      e.preventDefault();
-    }
-  };
 
   return (
     <div>

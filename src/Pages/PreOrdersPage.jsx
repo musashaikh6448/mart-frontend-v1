@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Table } from "react-bootstrap";
@@ -17,7 +17,7 @@ const PreOrderPage = () => {
   const [orders, setOrders] = useState([]);
   const navigate = useNavigate()
 
-  const handleTokenError = () => {
+  const handleTokenError = useCallback(() => {
     Swal.fire({
       icon: "warning",
       title: "Your session has expired.",
@@ -32,7 +32,7 @@ const PreOrderPage = () => {
         navigate("/login");
       }
     });
-  };
+  }, [navigate]);
 
   useEffect(() => {
     const fetchPreOrders = async () => {
@@ -62,7 +62,7 @@ const PreOrderPage = () => {
     };
   
     fetchPreOrders();
-  }, []);
+  }, [handleTokenError]);
   
   return (
     <div className="container table-responsive">

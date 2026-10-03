@@ -1,5 +1,5 @@
 // OrderTable.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import Modal from "react-modal";
 import {
@@ -32,7 +32,6 @@ const AllOrders = () => {
   const [isEditOrder, setIsEditOrder] = useState(false);
   const [newOrderStatus, setNewOrderStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [orderStatusClass, setOrderStatusClass] = useState("");
   const [feedback, setFeedback] = useState("");
   const [searchInput, setSearchInput] = useState("");
   const [showEditIcon, setShowEditIcon] = useState(true);
@@ -42,7 +41,7 @@ const AllOrders = () => {
   const navigate = useNavigate();
 
   // Function to handle expired or invalid token error
-  const handleTokenError = () => {
+  const handleTokenError = useCallback(() => {
     Swal.fire({
       icon: "warning",
       title: "Your session has expired.",
@@ -57,7 +56,7 @@ const AllOrders = () => {
         navigate("/login");
       }
     });
-  };
+  }, [navigate]);
 
   useEffect(() => {
     setFeedback("");
@@ -79,24 +78,6 @@ const AllOrders = () => {
       setNewOrderStatus(selectedOrder.orderStatus);
 
       setShowEditIcon(false);
-
-      // Set the dynamic class based on the order status
-      switch (selectedOrder.orderStatus) {
-        case "order-Verified":
-          setOrderStatusClass("order-verified");
-          break;
-        case "Dispatched":
-          setOrderStatusClass("dispatched");
-          break;
-        case "order-cancelled":
-          setOrderStatusClass("order-cancelled");
-          break;
-        case "Delivered":
-          setOrderStatusClass("delivered");
-          break;
-        default:
-          setOrderStatusClass("");
-      }
 
       setIsEditOrderStatus(true);
 
@@ -177,11 +158,12 @@ const AllOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
+        const currentToken = localStorage.getItem("token");
         const response = await axios.get(
           `${Base_Url}/order/getAllOrders`,
           {
             headers: {
-              Authorization: `${token}`,
+              Authorization: `${currentToken}`,
             },
           }
         );
@@ -202,7 +184,7 @@ const AllOrders = () => {
     };
 
     fetchOrders();
-  }, [isEditOrderStatus, isEditOrder]);
+  }, [isEditOrderStatus, isEditOrder, handleTokenError]);
 
   const handleMoreInfo = (order) => {
     setSelectedOrder(order);
@@ -460,11 +442,6 @@ const AllOrders = () => {
     }
   };
 
-  const handleEditOrder = () => {
-    // Toggle edit mode for the selected order
-    setIsEditOrderStatus(true);
-    setIsEditOrder(true);
-  };
 
   const handleSaveChanges = async () => {
     try {

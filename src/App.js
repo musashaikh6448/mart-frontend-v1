@@ -35,9 +35,6 @@ function App() {
   // Get userRole from localStorage
   const userRole = localStorage.getItem("userRole");
 
-  // Get token from localStorage
-  const token = localStorage.getItem("token");
-
   const location = useLocation();
 
   useEffect(() => {

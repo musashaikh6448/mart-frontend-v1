@@ -128,7 +128,7 @@ const AddUser = () => {
       const token = localStorage.getItem("token");
       const apiUrl = `${Base_Url}${createUserAPI}`;
   
-      const response = await axios.post(apiUrl, formData, {
+      await axios.post(apiUrl, formData, {
         headers: {
           Authorization: `${token}`,
         },
