@@ -202,10 +202,6 @@ const PaymentStep = () => {
 
           requiredFields.forEach((field) => {
             if (!formData[field]) {
-              setErrors((prevErrors) => ({
-                ...prevErrors,
-                [field]: " ",
-              }));
               hasError = true;
             }
           });
@@ -513,20 +509,6 @@ const PaymentStep = () => {
             </div>
           </div>
         </Modal>
-        {showPopup && (
-          <div className="popup-overlay">
-            <div className="popup-container">
-              <div className="card">
-                <div className="circle-container">
-                  <i className="checkmark">✓</i>
-                </div>
-                <h1 className="title">Order Successfull</h1>
-                <h5>Your order Id : {responseData?.order?.orderId}</h5>
-                <p className="message">Your order has been placed successfully<br/> Our Team will contact you shortly.</p>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
