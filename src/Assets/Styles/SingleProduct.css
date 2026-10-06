@@ -274,7 +274,7 @@
   }
   .button-div {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     width: 100%;
   }
 }
@@ -635,7 +635,7 @@
   display: flex !important;
   flex-direction: row !important;
   justify-content: space-evenly !important;
-  align-items: end;
+  align-items: flex-end;
   height: 50px;
   margin-bottom: 20px;
 }

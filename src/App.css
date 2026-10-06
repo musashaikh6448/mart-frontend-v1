@@ -888,7 +888,7 @@ padding: 10px!important;
 
 .view-all-btn{
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   font-size: 20px;
   /* margin: 25px 0; */
   margin-bottom: 25px;
@@ -2492,7 +2492,7 @@ footer {
     overflow-x: auto;
     position: relative;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     flex-wrap: nowrap;
     align-items: center;
     padding: 0px 30px;
@@ -5288,7 +5288,7 @@ footer {
     height: 60px;
     display: flex;
     justify-content: space-evenly;
-    align-items: start;
+    align-items: flex-start;
     flex-direction: column;
     /* width: 600px; */
   }
@@ -5643,7 +5643,7 @@ footer {
 @media (max-width: 767px) {
   .search-results-dropdown div {
     flex-direction: row; /* Change to column layout for mobile view */
-    justify-content:start;
+    justify-content: flex-start;
     border: 0.1px solid rgba(128, 128, 128, 0.197);
 
     padding: 8px;

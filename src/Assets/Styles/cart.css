@@ -289,7 +289,7 @@
   .checkout {
     text-align: right;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
   }
   
   .checkout > .cartButton {
@@ -571,7 +571,7 @@ padding: 0px !important;
   display: grid;
   grid-template-columns: 1fr 380px;
   gap: 30px;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .cart-items-card {
